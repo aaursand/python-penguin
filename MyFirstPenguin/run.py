@@ -72,7 +72,6 @@ def checkEnemy(body):
 
 # Move towards enemy
 def moveTowardsEnemy(body):
-    enemy = body["enemies"]
     if checkEnemy(body):
         return moveTowardsEnemy(body)
     else: 
@@ -80,7 +79,7 @@ def moveTowardsEnemy(body):
     
 def checkForBonus(body):
     power = body["bonusTiles"]
-    if len(power) <= 1:
+    if len(power) < 1:
         return False
     else:
         return True
