@@ -92,7 +92,7 @@ def moveTowardsPower(body):
         best_y = power[0]["y"]
         for i in power:
             temp = getMagnitude(body, i["x"], i["y"])
-            if temp < 0:
+            if temp < powerList:
                 powerList = temp
         return moveTowardsPoint(body, best_x, best_y)
     else: 
