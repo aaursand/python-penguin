@@ -88,7 +88,7 @@ def checkForBonus(body):
 def moveTowardsPower(body):
     if checkForBonus(body):
         power = body["bonusTiles"]
-        powerList = getMagnitude(body, power[0]["x"], power[0]["y"])
+        powerList = 10000000000
         best_x = power[0]["x"]
         best_y = power[0]["y"]
         for i in power:
