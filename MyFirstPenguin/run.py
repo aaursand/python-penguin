@@ -112,7 +112,7 @@ def getMagnitude(body, x, y):
 
 def chooseAction(body):
     action = PASS
-    action = moveToCorner(body)
+    action = moveTowardsEnemy(body)
     return action
 
 env = os.environ
@@ -126,7 +126,7 @@ if req_params_query == "info":
     returnObject["team"] = "Team Python"
 elif req_params_query == "command":    
     body = json.loads(open(env["req"], "r").read())
-    returnObject["command"] = moveTowardsEnemy(body)
+    returnObject["command"] = chooseAction(body)
 
 response["body"] = returnObject
 responseBody.write(json.dumps(response))
