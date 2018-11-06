@@ -63,11 +63,6 @@ def moveTowardsCenterOfMap(body):
     centerPointY = math.floor(body["mapHeight"] / 2)
     return moveTowardsPoint(body, centerPointX, centerPointY)
 
-def moveToCorner(body):
-    endPointX = math.floor(body["mapWidth"])
-    endPointY = math.floor(body["mapHeight"])
-    return moveTowardsPoint(body, endPointX, endPointY)
-
 # Check for enemy
 def checkEnemy(body):
     enemy = body["enemies"]
@@ -106,7 +101,7 @@ def moveTowardsPower(body):
 
 def moveAround(body):
     return moveTowardsCenterOfMap(body)
-    
+
 def getMagnitude(body, x, y):
     you_x = body["you"]["x"]
     you_y = body["you"]["y"]
@@ -131,7 +126,7 @@ if req_params_query == "info":
     returnObject["team"] = "Team Python"
 elif req_params_query == "command":    
     body = json.loads(open(env["req"], "r").read())
-    returnObject["command"] = chooseAction(body)
+    returnObject["command"] = moveTowardsEnemy(body)
 
 response["body"] = returnObject
 responseBody.write(json.dumps(response))
