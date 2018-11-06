@@ -68,6 +68,53 @@ def moveToCorner(body):
     endPointY = math.floor(body["mapHeight"])
     return moveTowardsPoint(body, endPointX, endPointY)
 
+# Check for enemy
+def checkEnemy(body):
+    enemy = body["enemies"]
+    if len(enemy) < 1:
+        return False    
+    return True
+
+# Move towards enemy
+def moveTowardsEnemy(body):
+    enemy = body["enemies"]
+    if checkEnemy(body):
+        return moveTowardsEnemy(body)
+    else: 
+        return moveTowardsPower(body)
+    
+def checkForBonus(body):
+    power = body["bonusTiles"]
+    if len(power) <= 1:
+        return False
+    else:
+        return True
+
+def moveTowardsPower(body):
+    if checkForBonus(body):
+        power = body["bonusTiles"]
+        powerList = getMagnitude(body, power[0]["x"], power[0]["y"])
+        best_x = power[0]["x"]
+        best_y = power[0]["y"]
+        for i in power:
+            temp = getMagnitude(body, i["x"], i["y"])
+            if temp < 0:
+                powerList = temp
+        return moveTowardsPoint(body, best_x, best_y)
+    else: 
+        return moveAround(body)
+
+def moveAround(body):
+    return moveTowardsCenterOfMap(body)
+    
+def getMagnitude(body, x, y):
+    you_x = body["you"]["x"]
+    you_y = body["you"]["y"]
+    vector_y = y - you_y
+    vector_x = x - you_x
+    magnitude = math.sqrt(vector_x**2 + vector_y**2)
+    return magnitude
+
 def chooseAction(body):
     action = PASS
     action = moveToCorner(body)
