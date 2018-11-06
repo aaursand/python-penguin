@@ -70,7 +70,7 @@ def moveToCorner(body):
 
 def chooseAction(body):
     action = PASS
-    action = moveToCorner(body)
+    action = moveTowardsCenterOfMap(body)
     return action
 
 env = os.environ
