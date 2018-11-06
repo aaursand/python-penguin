@@ -64,7 +64,7 @@ def moveTowardsCenterOfMap(body):
     return moveTowardsPoint(body, centerPointX, centerPointY)
 
 def moveToCorner(body):
-    endPointX = math.floor(body["mapWitdht"])
+    endPointX = math.floor(body["mapWidth"])
     endPointY = math.floor(body["mapHeight"])
     return moveTowardsPoint(body, endPointX, endPointY)
 
