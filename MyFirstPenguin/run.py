@@ -63,10 +63,10 @@ def moveTowardsCenterOfMap(body):
     centerPointY = math.floor(body["mapHeight"] / 2)
     return moveTowardsPoint(body, centerPointX, centerPointY)
 
-def moveToCorner(body):
-    endPointX = math.floor(body.mapWidth)
-    endPointY = math.floor(body.mapHeight)
-    return moveTowardsPoint(body, endPointX, endPointY)
+#def moveToCorner(body):
+#    endPointX = math.floor(body.mapWidth)
+#    endPointY = math.floor(body.mapHeight)
+#    return moveTowardsPoint(body, endPointX, endPointY)
 
 def chooseAction(body):
     action = PASS
