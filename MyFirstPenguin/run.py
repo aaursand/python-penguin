@@ -36,6 +36,9 @@ def wallInFrontOfPenguin(body):
         xValueToCheckForWall += 1
     return doesCellContainWall(body["walls"], xValueToCheckForWall, yValueToCheckForWall)
 
+def moveInRandom():
+    return "hello World"
+    
 def moveTowardsPoint(body, pointX, pointY):
     penguinPositionX = body["you"]["x"]
     penguinPositionY = body["you"]["y"]
