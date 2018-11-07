@@ -111,7 +111,6 @@ def getMagnitude(body, x, y):
     return magnitude
 
 def chooseAction(body):
-    action = PASS
     action = moveTowardsEnemy(body)
     return action
 
