@@ -65,10 +65,11 @@ def moveTowardsCenterOfMap(body):
 
 # Check for enemy
 def checkEnemy(body):
-    enemy = body["enemies"]
-    if len(enemy) < 1:
-        return False    
-    return True
+    try:
+        body["enemies"][0]["x"]
+        return True
+    except KeyError:
+        return False 
 
 # Move towards enemy
 def moveTowardsEnemy(body):
