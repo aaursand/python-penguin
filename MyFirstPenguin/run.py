@@ -73,7 +73,7 @@ def checkEnemy(body):
 # Move towards enemy
 def moveTowardsEnemy(body):
     if checkEnemy(body):
-        enemy = body["enemy"]
+        enemy = body["enemies"][0]
         return moveTowardsPoint(body, enemy["x"], enemy["y"])
     else: 
         return moveTowardsPower(body)
